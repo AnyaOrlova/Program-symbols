@@ -1,5 +1,4 @@
-all: bin/main format
-
+all: bin/main bin/test format
 
 .PHONY:
 	clear format all
@@ -17,7 +16,7 @@ bin/test: build/test/main.o build/test/test.o build/src/symbols.o
 	gcc -Wall build/test/main.o build/test/test.o build/src/symbols.o -o bin/test
 
 build/test/main.o: thirdparty/ctest.h
-	gcc -wall -c test/main.c -o build/test/main.o
+	gcc -Wall -c test/main.c -o build/test/main.o
 
 build/test/test.o: thirdparty/ctest.h
 	gcc -Wall -c test/test.c -o build/test/test.o

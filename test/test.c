@@ -19,21 +19,18 @@ CTEST(file_check, file_dosnt_exist)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(check, check_1)
 {
     char expected[] = "{([])}";
     char result[] = "OK";
-  /*  for (int i = 0; i < 5; i++) {
-        result[i] = tolower(result[i]);
-   */ }
-  ASSERT_STR(expected, result);
-  }
-  CTEST(check, check_2)
-  {
-      char expected[] = "{[()";
-      char result[] = "FAIL";
-      /* for (int i = 0; i < 5; i++) {
-           result[i] = tolower(result[i]);
-       }*/
-      ASSERT_STR(expected, result);
-  }
+
+    ASSERT_STR(expected, result);
+}
+CTEST(check, check_2)
+{
+    char expected[] = "{[()";
+    char result[] = "FAIL";
+
+    ASSERT_STR(expected, result);
+}
