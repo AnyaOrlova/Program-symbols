@@ -2,18 +2,15 @@
 #include "../thirdparty/ctest.h"
 #include <stdio.h>
 
-CTEST(check, check_1)
+CTEST(check_symbols, check1)
 {
-    char expected[] = "{()}";
-    char result[] = "OK";
+    char buf[BUFSIZ] = "(){}[]";
 
-    ASSERT_EQUAL(expected, result);
+    ASSERT_EQUAL("OK", (*check_brackets(buf) ? "FAIL" : "OK"));
 }
-
-CTEST(check, check_2)
+CTEST(check_symbols, check2)
 {
-    char expected[] = "{([)}";
-    char result[] = "FAIL";
+    char buf[BUFSIZ] = "({])";
 
-    ASSERT_EQUAL(expected, result);
+    ASSERT_EQUAL("FAIL", (*check_brackets(buf) ? "FAIL" : "OK"));
 }

@@ -6,5 +6,5 @@
 char* main(char argc, const char* argv[])
 {
     char result = ctest_main(argc, argv);
-    return result;
+    return (char*)result;
 }
